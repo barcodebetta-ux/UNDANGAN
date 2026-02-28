@@ -1,1 +1,309 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html lang='id' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/namespaces/blogger/imagix/2005' xmlns:data='http://www.google.com/namespaces/blogger/data' xmlns:expr='http://www.google.com/namespaces/blogger/gadgets/2005'>
+<head>
+    <meta charset='UTF-8' />
+    <meta content='width=device-width, initial-scale=1.0' name='viewport' />
+    <title>Undangan Aqiqah Digital - Gavin Arshaka</title>
+    
+    <!-- Blogger Skin (Wajib ada untuk Tema) -->
+    <b:skin><![CDATA[
+        /* CSS Utama sudah ada di Tailwind, bagian ini dibiarkan kosong namun wajib ada */
+    ]]></b:skin>
 
+    <script src='https://cdn.tailwindcss.com'></script>
+    <link href='https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;family=Sacramento&amp;display=swap' rel='stylesheet' />
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css' rel='stylesheet' />
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        .font-script {
+            font-family: 'Sacramento', cursive;
+        }
+        .bg-soft {
+            background-color: #f0f7ff;
+            background-image: url("https://www.transparenttextures.com/patterns/white-diamond-dark.png");
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .cover-overlay {
+            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+        .cover-hidden {
+            transform: translateY(-100%);
+        }
+        #music-btn {
+            animation: spin 4s linear infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .paused {
+            animation-play-state: paused !important;
+        }
+        .baby-frame {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            animation: morph 8s ease-in-out infinite;
+        }
+        @keyframes morph {
+            0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+            100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+        }
+    </style>
+</head>
+<body class='bg-soft text-slate-700'>
+    
+    <!-- Blogger Section (Wajib ada untuk Tema) -->
+    <b:section id='main' showaddelement='yes'>
+        <!-- Konten Undangan -->
+    </b:section>
+
+    <!-- AUDIO ELEMENT - Menggunakan instrumen lembut khas aqiqah -->
+    <audio id='bgMusic' loop='loop'>
+        <source src='https://cdn.pixabay.com/audio/2022/05/27/audio_1808f3030e.mp3' type='audio/mpeg' />
+    </audio>
+
+    <!-- COVER SECTION -->
+    <div class='fixed inset-0 z-[100] flex items-center justify-center bg-blue-50 cover-overlay overflow-hidden' id='cover'>
+        <div class='text-center p-6 max-w-md w-full animate__animated animate__fadeIn'>
+            <div class='mb-6'>
+                <div class='w-40 h-40 mx-auto bg-white baby-frame flex items-center justify-center shadow-2xl border-4 border-white overflow-hidden'>
+                     <!-- Gambar Bayi Utama -->
+                     <img alt='Bayi' class='w-full h-full object-cover' src='https://images.unsplash.com/photo-1519689680058-324335c77eba?q=80&amp;w=500&amp;auto=format&amp;fit=crop' />
+                </div>
+            </div>
+            <h2 class='text-xl tracking-widest uppercase text-blue-400 font-semibold mb-2'>Walimatul Aqiqah</h2>
+            <h1 class='text-5xl font-script text-blue-600 mb-6'>Gavin Arshaka Al-Fatih</h1>
+            <p class='mb-2 text-slate-500 italic text-sm'>Kepada Yth. Bapak/Ibu/Saudara/i</p>
+            <div class='text-2xl font-bold text-slate-800 mb-8 underline decoration-blue-200 decoration-4 underline-offset-8' id='guest-name'>Nama Tamu</div>
+            <button class='bg-blue-500 hover:bg-blue-600 text-white px-10 py-4 rounded-full shadow-lg transition-all transform hover:scale-105 active:scale-95 flex items-center mx-auto gap-3 font-bold' onclick='openInvitation()'>
+                <svg class='h-5 w-5' fill='currentColor' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'>
+                    <path d='M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z'/>
+                    <path d='M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z'/>
+                </svg>
+                Buka Undangan
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <main class='max-w-xl mx-auto min-h-screen pb-20 px-4' id='main-content'>
+        
+        <!-- HEADER / HERO -->
+        <section class='py-20 text-center animate__animated animate__fadeIn'>
+            <h2 class='text-blue-500 font-semibold tracking-[0.3em] uppercase mb-6 text-sm'>Assalamu’alaikum Wr. Wb.</h2>
+            <div class='mb-10 relative inline-block'>
+                <div class='absolute inset-0 bg-blue-200 rounded-full blur-3xl opacity-40 animate-pulse'></div>
+                <img alt='Icon Bayi' class='relative w-48 h-48 mx-auto drop-shadow-2xl baby-frame object-cover border-4 border-white' src='https://images.unsplash.com/photo-1555252333-9f8e92e65df9?q=80&amp;w=500&amp;auto=format&amp;fit=crop' />
+            </div>
+            <p class='text-slate-600 leading-relaxed px-8 italic mb-10 text-sm'>
+                "Setiap anak tergadai dengan aqiqahnya, disembelihkan untuknya pada hari ketujuh, digundul rambutnya dan diberi nama." <br />
+                <span class='font-bold text-xs mt-2 block'>(HR. Abu Daud No. 2838)</span>
+            </p>
+        </section>
+
+        <!-- PROFILE -->
+        <section class='glass rounded-[2.5rem] p-10 mb-12 text-center shadow-2xl border-blue-50 relative overflow-hidden'>
+            <div class='absolute top-0 right-0 w-24 h-24 bg-blue-100 rounded-bl-full opacity-50'></div>
+            <p class='mb-8 text-sm leading-relaxed'>Dengan memanjatkan puji syukur kehadirat Allah SWT, kami mengharap kehadiran Bapak/Ibu/Saudara/i untuk hadir dalam acara Aqiqah putra kami:</p>
+            
+            <h1 class='text-5xl font-script text-blue-600 mb-4'>Gavin Arshaka Al-Fatih</h1>
+            <p class='text-slate-500 font-semibold mb-8 text-sm'>Lahir pada: 12 Mei 2024</p>
+            
+            <div class='flex justify-center items-center gap-4 text-sm mb-6'>
+                <div class='h-[1px] bg-blue-300 flex-1'></div>
+                <span class='text-blue-500 font-bold uppercase tracking-widest'>Putra Pertama dari:</span>
+                <div class='h-[1px] bg-blue-300 flex-1'></div>
+            </div>
+            <p class='text-xl font-bold text-slate-800'>Bpk. Andi Wijaya &amp; Ibu Siti Fatimah</p>
+        </section>
+
+        <!-- COUNTDOWN -->
+        <section class='mb-16 text-center px-4'>
+            <h3 class='text-blue-500 font-bold mb-8 italic uppercase tracking-widest text-xs'>Menuju Hari Bahagia:</h3>
+            <div class='grid grid-cols-4 gap-3'>
+                <div class='bg-white/80 p-4 rounded-3xl shadow-lg border-b-8 border-blue-400'>
+                    <span class='block text-3xl font-bold text-blue-600' id='days'>00</span>
+                    <span class='text-[10px] uppercase font-bold text-slate-400 tracking-tighter'>Hari</span>
+                </div>
+                <div class='bg-white/80 p-4 rounded-3xl shadow-lg border-b-8 border-blue-400'>
+                    <span class='block text-3xl font-bold text-blue-600' id='hours'>00</span>
+                    <span class='text-[10px] uppercase font-bold text-slate-400 tracking-tighter'>Jam</span>
+                </div>
+                <div class='bg-white/80 p-4 rounded-3xl shadow-lg border-b-8 border-blue-400'>
+                    <span class='block text-3xl font-bold text-blue-600' id='minutes'>00</span>
+                    <span class='text-[10px] uppercase font-bold text-slate-400 tracking-tighter'>Menit</span>
+                </div>
+                <div class='bg-white/80 p-4 rounded-3xl shadow-lg border-b-8 border-blue-400'>
+                    <span class='block text-3xl font-bold text-blue-600' id='seconds'>00</span>
+                    <span class='text-[10px] uppercase font-bold text-slate-400 tracking-tighter'>Detik</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- EVENT INFO -->
+        <section class='glass rounded-[2.5rem] overflow-hidden shadow-2xl mb-12 border-blue-50'>
+            <div class='bg-blue-500 p-8 text-center text-white'>
+                <h3 class='text-2xl font-bold tracking-widest uppercase'>Waktu &amp; Lokasi</h3>
+            </div>
+            <div class='p-10 text-center'>
+                <div class='mb-10'>
+                    <div class='bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner'>
+                        <svg class='w-8 h-8 text-blue-600' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path d='M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/></svg>
+                    </div>
+                    <h4 class='font-bold text-2xl mb-2 text-slate-800'>Minggu, 12 Mei 2024</h4>
+                    <p class='text-blue-500 font-semibold uppercase tracking-widest text-xs'>Pukul 09.00 WIB s/d Selesai</p>
+                </div>
+
+                <div class='mb-10'>
+                    <div class='bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 shadow-inner'>
+                        <svg class='w-8 h-8 text-blue-600' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path d='M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/><path d='M15 11a3 3 0 11-6 0 3 3 0 016 0z' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/></svg>
+                    </div>
+                    <h4 class='font-bold text-xl mb-2 text-slate-800'>Kediaman Kami</h4>
+                    <p class='text-sm text-slate-500 px-6 leading-relaxed'>Jl. Kebon Jeruk No. 15, RT.001/RW.002, Kel. Palmerah, Kec. Palmerah, Jakarta Barat</p>
+                </div>
+
+                <!-- Google Maps Link -->
+                <a class='inline-flex items-center gap-2 bg-blue-500 text-white px-10 py-4 rounded-full text-sm font-bold shadow-xl hover:bg-blue-600 transition-all transform hover:scale-105 active:scale-95' href='https://maps.app.goo.gl/uX7MvVzG5p9U8wWq5' target='_blank'>
+                    <svg class='w-5 h-5' fill='currentColor' viewBox='0 0 20 20'><path d='M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z' fill-rule='evenodd'/></svg>
+                    Buka Google Maps
+                </a>
+            </div>
+        </section>
+
+        <!-- GIFT SECTION -->
+        <section class='glass rounded-[2.5rem] p-10 mb-12 text-center shadow-2xl border-blue-50'>
+            <h3 class='text-2xl font-bold text-blue-600 mb-4'>Kado Digital</h3>
+            <p class='text-xs text-slate-500 mb-10 leading-relaxed px-4'>Doa restu Anda adalah karunia terindah, namun jika ingin memberi tanda kasih, silakan melalui:</p>
+            
+            <div class='space-y-6'>
+                <div class='p-8 bg-white/50 rounded-[2rem] border-2 border-dashed border-blue-200 shadow-inner relative overflow-hidden'>
+                    <div class='absolute -top-4 -right-4 w-16 h-16 bg-blue-50 rounded-full'></div>
+                    <p class='font-bold text-blue-600 mb-2 tracking-widest'>BANK BCA</p>
+                    <p class='text-2xl font-mono font-bold mb-2 text-slate-800 tracking-widest' id='rekening'>1234567890</p>
+                    <p class='text-xs text-slate-500 mb-6 uppercase tracking-widest font-bold'>a.n Orang Tua Bayi</p>
+                    <button class='bg-blue-50 text-blue-600 px-8 py-3 rounded-2xl text-xs font-bold hover:bg-blue-100 flex items-center gap-3 mx-auto transition-all shadow-sm' onclick="copyText('1234567890', this)">
+                        <svg class='w-4 h-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'><path d='M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/></svg>
+                        Salin Rekening
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CLOSING -->
+        <section class='text-center py-10 px-6'>
+            <p class='mb-6 leading-relaxed'>Merupakan suatu kehormatan dan kebahagiaan bagi kami sekeluarga apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.</p>
+            <p class='mb-12 font-semibold text-blue-500'>Wassalamu’alaikum Wr. Wb.</p>
+            
+            <p class='text-xs font-bold text-slate-400 uppercase tracking-[0.3em] mb-4'>Kami yang berbahagia,</p>
+            <h2 class='text-4xl font-script text-blue-600 mt-2 mb-32'>Keluarga Bpk. Andi Wijaya</h2>
+        </section>
+
+    </main>
+
+    <!-- FLOATING MUSIC CONTROL -->
+    <div class='fixed bottom-8 right-8 z-50'>
+        <button class='w-14 h-14 bg-white shadow-2xl rounded-full flex items-center justify-center text-blue-500 border-4 border-blue-50 transition-transform active:scale-90' id='musicToggle' onclick='toggleMusic()'>
+            <svg class='w-7 h-7 paused' fill='none' id='music-btn' stroke='currentColor' viewBox='0 0 24 24'><path d='M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/></svg>
+        </button>
+    </div>
+
+    <!-- NOTIFICATION BOX -->
+    <div class='fixed bottom-24 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-8 py-3 rounded-2xl text-sm opacity-0 transition-opacity pointer-events-none z-50 font-bold shadow-2xl' id='toast'>
+        Tersalin ke papan klip!
+    </div>
+
+    <script type='text/javascript'>
+        //<![CDATA[
+        // Ambil Nama Tamu dari URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const guest = urlParams.get('to');
+        if (guest) {
+            document.getElementById('guest-name').innerText = guest;
+        }
+
+        // Fungsi Buka Undangan
+        function openInvitation() {
+            const cover = document.getElementById('cover');
+            cover.classList.add('cover-hidden');
+            
+            // Putar Musik
+            const music = document.getElementById('bgMusic');
+            music.play();
+            document.getElementById('music-btn').classList.remove('paused');
+
+            setTimeout(() => {
+                cover.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 1200);
+        }
+
+        // Kontrol Musik
+        function toggleMusic() {
+            const music = document.getElementById('bgMusic');
+            const btnIcon = document.getElementById('music-btn');
+            if (music.paused) {
+                music.play();
+                btnIcon.classList.remove('paused');
+            } else {
+                music.pause();
+                btnIcon.classList.add('paused');
+            }
+        }
+
+        // Fungsi Salin Teks
+        function copyText(text, btn) {
+            const tempInput = document.createElement("input");
+            tempInput.value = text;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+
+            const toast = document.getElementById('toast');
+            toast.style.opacity = '1';
+            setTimeout(() => { toast.style.opacity = '0'; }, 2000);
+        }
+
+        // Countdown Timer
+        const targetDate = new Date("May 12, 2024 09:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const gap = targetDate - now;
+
+            const second = 1000;
+            const minute = second * 60;
+            const hour = minute * 60;
+            const day = hour * 24;
+
+            const d = Math.floor(gap / day);
+            const h = Math.floor((gap % day) / hour);
+            const m = Math.floor((gap % hour) / minute);
+            const s = Math.floor((gap % minute) / second);
+
+            document.getElementById("days").innerText = d < 10 ? "0"+d : (d < 0 ? "00" : d);
+            document.getElementById("hours").innerText = h < 10 ? "0"+h : (h < 0 ? "00" : h);
+            document.getElementById("minutes").innerText = m < 10 ? "0"+m : (m < 0 ? "00" : m);
+            document.getElementById("seconds").innerText = s < 10 ? "0"+s : (s < 0 ? "00" : s);
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Kunci scroll saat pertama kali buka
+        window.onload = () => {
+            document.body.style.overflow = 'hidden';
+            window.scrollTo(0,0);
+        }
+        //]]>
+    </script>
+</body>
+</html>
